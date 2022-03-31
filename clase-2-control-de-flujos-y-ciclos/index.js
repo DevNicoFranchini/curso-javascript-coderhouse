@@ -29,3 +29,22 @@ while (entrada != "ESC") {
   //Volvemos a solicitar un dato. En la próxima iteración se evalúa si no es ESC.
   entrada = prompt("Ingresar otro dato");
 } */
+
+/* let prueba = 5;
+
+if (prueba === 6) {
+  console.log("bien");
+} else {
+  console.log("mal");
+} */
+
+/* let nombre = prompt("Ingrese su nombre");
+let edad = parseInt(prompt("Ingrese su edad"));
+
+if (edad >= 18) {
+  alert(nombre + " " + "puede ingresar al boliche.");
+} else {
+  alert(nombre + " " + "no puede ingresar al boliche.");
+} */
+
+
