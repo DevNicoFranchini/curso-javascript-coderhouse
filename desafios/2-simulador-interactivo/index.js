@@ -8,48 +8,26 @@ function iniciarSesion() {
   let celular = prompt("Ingrese su celular");
 
   alert(
-    `Sus datos son:\nNombre: ${nombre} ${apellido}.\nCorreo electrónico: ${mail}.\nCelular: ${celular}`
+    `¡Hola ${nombre}!\nSus datos son:\nNombre: ${nombre} ${apellido}.\nCorreo electrónico: ${mail}.\nCelular: ${celular}`
   );
 }
 iniciarSesion();
 
 //Seleccionar productos
 
-class Productos {
+class Producto {
   constructor(nombre, precio) {
     this.nombre = nombre;
     this.precio = parseFloat(precio);
   }
 }
 
-const torta = new Productos("Torta", 100);
-const budin = new Productos("Budin", 50);
-const galleta = new Productos("Galleta", 25);
+const torta = new Producto("Torta", 100);
+const budin = new Producto("Budin", 50);
+const galleta = new Producto("Galleta", 25);
 
 function pedido() {
   let carrito = prompt(
-    "Agregue su pedido al carrito:\n1. Torta - $100\n2.Budin - $50\n3. Galleta - $25\nIngrese FIN para salir."
+    "Agregue su pedido al carrito:\nIngrese el número correspondiente a su orden.\n1. Torta\n2.Budin\n3. Galleta\nIngrese FIN para salir."
   );
-
-  while (carrito != "FIN") {
-    switch (carrito) {
-      case "Torta":
-        alert("Su valor es $10");
-        break;
-      case "Budin":
-        alert("Su valor es $50");
-        break;
-      case "Galleta":
-        alert("Su valor es $25");
-        break;
-      default:
-        alert("Pedido incorrecto");
-        break;
-    }
-
-    carrito = prompt(
-      "Agregue su pedido al carrito:\n1. Torta - $100\n2.Budin - $50\n3. Galleta - $25\nIngrese FIN para salir."
-    );
-  }
 }
-pedido();
