@@ -1,33 +1,67 @@
-//Carrito de compras
+// Calcular cuotas de un pedido
 
-//Iniciar Sesión
-function iniciarSesion() {
-  let nombre = prompt("Ingrese su nombre");
-  let apellido = prompt("Ingrese su apellido");
-  let mail = prompt("Ingrese su correo electrónico");
-  let celular = prompt("Ingrese su celular");
+// Bienvenida
 
-  alert(
-    `¡Hola ${nombre}!\nSus datos son:\nNombre: ${nombre} ${apellido}.\nCorreo electrónico: ${mail}.\nCelular: ${celular}`
-  );
-}
-iniciarSesion();
+let nombre = prompt("Ingrese su nombre");
+let apellido = prompt("Ingrese su apellido");
+let celular = parseInt(prompt("Ingrese su número de celular"));
+let contra = prompt("Ingrese su constraseña");
 
-//Seleccionar productos
+alert(
+  `¡Hola ${nombre}! Le damos la bienvenida a Las Flores Pastelería. Vamos a verificar sus datos para poder realizar una compra segura...`
+);
 
-class Producto {
-  constructor(nombre, precio) {
-    this.nombre = nombre;
-    this.precio = parseFloat(precio);
+let user = "";
+let pass = "";
+let intentos = 3;
+
+function login(nombre, contrasenia, intentos) {
+  if (!(nombre === "" && contrasenia === "")) {
+    while (intentos > 0 && (nombre !== user || contrasenia !== pass)) {
+      user = prompt("Ingrese su nombre");
+      pass = prompt("Ingrese su contraseña");
+
+      if (user === nombre && pass === contrasenia) {
+        alert(`¡Datos verificados ${user}! Disfrute su compra.`);
+      } else {
+        alert(
+          `Nombre o contraseña incorrectos. Restan ${intentos--} intentos.`
+        );
+      }
+    }
   }
 }
 
-const torta = new Producto("Torta", 100);
-const budin = new Producto("Budin", 50);
-const galleta = new Producto("Galleta", 25);
+login(nombre, contra, intentos);
 
-function pedido() {
-  let carrito = prompt(
-    "Agregue su pedido al carrito:\nIngrese el número correspondiente a su orden.\n1. Torta\n2.Budin\n3. Galleta\nIngrese FIN para salir."
+let valor = parseInt(
+  prompt(`${nombre}, ingrese un precio para calcularle su valor.`)
+);
+
+alert(`El valor ingresado es $${valor}`);
+
+// Simulador de crédito
+
+function simulador() {
+  let cuotas = parseInt(
+    prompt(
+      `${nombre}, ingrese 1 para 3 cuotas sin interés, 2 para 6 cuotas con 15% de recargo o 3 para 12 cuotas con 30% de recargo.`
+    )
   );
+
+  if (cuotas === 1) {
+    valor = valor / 3;
+    alert(`El precio final es $${valor}`);
+  } else if (cuotas === 2) {
+    valor = (valor * 0.15) / 6;
+    alert(`El precio final es $${valor}`);
+  } else if (cuotas === 3) {
+    valor = (valor * 0.3) / 12;
+    alert(`El precio final es $${valor}`);
+  } else {
+    alert(`${nombre}, el número es incorrecto. Vuelva a intentar`);
+  }
 }
+
+simulador();
+alert(`Gracias por haber utilizado el simulador. Hasta la próxima ${nombre}`);
