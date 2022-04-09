@@ -24,19 +24,44 @@ const helado = new Productos("Helado", 50);
 const productosActivos = [torta, budin, pan, tarta, galleta, helado];
 const productosInactivos = [];
 
-function cambiar(nombre) {
-  nombre.vender();
-  let index = productosActivos.indexOf(nombre);
-  if (index != -1) {
-    productosActivos.splice(index, 1);
-    productosInactivos.push(nombre);
-  } else {
-    console.log("Producto inexistente");
+function elegirProductos() {
+  let productoSeleccionado = parseInt(
+    prompt(
+      "Ingrese 1 para torta\nIngrese 2 para budin\nIngrese 3 para pan\nIngrese 4 para tarta\nIngrese 5 para galleta\nIngrese 6 para helado\nPuede elegir hasta 3 productos."
+    )
+  );
+
+  if (productoSeleccionado === 1) {
+    var nombre = torta;
+  } else if (productoSeleccionado === 2) {
+    var nombre = budin;
+  } else if (productoSeleccionado === 3) {
+    var nombre = pan;
+  } else if (productoSeleccionado === 4) {
+    var nombre = tarta;
+  } else if (productoSeleccionado === 5) {
+    var nombre = galleta;
+  } else if (productoSeleccionado === 6) {
+    var nombre = helado;
+  } else alert("Producto inexistente o ya seleccionado");
+
+  function cambiar(nombre) {
+    nombre.vender();
+    let index = productosActivos.indexOf(nombre);
+    if (index != -1) {
+      productosActivos.splice(index, 1);
+      productosInactivos.push(nombre);
+    } else {
+      alert("Producto inexistente o ya seleccionado");
+    }
   }
+
+  cambiar(nombre);
 }
 
-cambiar(torta);
-cambiar(pan);
+for (let index = 0; index < 3; index++) {
+  elegirProductos();
+}
 
 console.log(productosActivos);
 console.log(productosInactivos);
