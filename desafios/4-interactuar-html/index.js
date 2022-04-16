@@ -3,7 +3,7 @@ let lista = document.getElementById("tareas");
 const tareas = [];
 
 for (let i = 0; i < 5; i++) {
-  let word = prompt("Agregar tarea");
+  let word = prompt("Agregar 5 tareas");
   tareas.push(word);
 }
 
