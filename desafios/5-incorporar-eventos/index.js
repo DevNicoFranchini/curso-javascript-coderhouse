@@ -11,6 +11,7 @@ miForm.addEventListener("submit", validarForm);
 
 function validarForm(e) {
   e.preventDefault();
-  datos.innerHTML = `¡Datos ingresados correctamente!`;
+  datos.innerHTML = `¡Datos ingresados correctamente!
+  Bienvenido ${usuario.value}`;
   console.log(`El usuario ingresado fue ${usuario.value}`);
 }
